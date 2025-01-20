@@ -1,0 +1,8 @@
+<button
+  pButton
+  pRipple
+  [label]="label"
+  [severity]="severity ? severity : 'primary'"
+  (onClick)="onClick.emit($event)"
+  [ngClass]="size"
+></button>
