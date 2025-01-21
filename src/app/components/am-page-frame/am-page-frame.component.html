@@ -1,0 +1,75 @@
+<header class="header">
+  <img
+    class="header-logo"
+    src="./../../../assets/header-logo.png"
+    alt="header-logo"
+  />
+</header>
+<body class="container">
+  <div class="menu">
+    <nav class="menu-lateral">
+      <ul>
+        <li>
+          <button (click)="toggleSubmenu(0)">
+            Cadastros
+            <i
+              [ngClass]="
+                isSubmenuOpen(0)
+                  ? 'pi pi-angle-up drop-menu'
+                  : 'pi pi-angle-down drop-menu'
+              "
+              style="color: #103554"
+            ></i>
+          </button>
+          <ul *ngIf="isSubmenuOpen(0)" class="submenu-content">
+            <li><a href="#">Clientes</a></li>
+            <li><a href="#">Sócios</a></li>
+          </ul>
+        </li>
+        <li>
+          <button (click)="toggleSubmenu(1)">
+            Administração
+            <i
+              [ngClass]="
+                isSubmenuOpen(1)
+                  ? 'pi pi-angle-up drop-menu'
+                  : 'pi pi-angle-down drop-menu'
+              "
+              style="color: #103554"
+            ></i>
+          </button>
+          <ul *ngIf="isSubmenuOpen(1)" class="submenu-content">
+            <li><a href="#">Gestão de contratos</a></li>
+            <li><a href="#">Honorários</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Contratos</a>
+        </li>
+        <li>
+          <a href="#">Tarefas</a>
+        </li>
+        <li>
+          <button (click)="toggleSubmenu(2)">
+            Configurações gerais
+            <i
+              [ngClass]="
+                isSubmenuOpen(2)
+                  ? 'pi pi-angle-up drop-menu'
+                  : 'pi pi-angle-down drop-menu'
+              "
+              style="color: #103554"
+            ></i>
+          </button>
+          <ul *ngIf="isSubmenuOpen(2)" class="submenu-content">
+            <li><a href="#">Usuários</a></li>
+            <li><a href="#">Permissões</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</body>
