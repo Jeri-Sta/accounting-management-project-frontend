@@ -1,8 +1,9 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Routes } from '@angular/router';
+import { UsersComponent } from './feature/general-configuration/users/users.component';
 
-import { routes } from './app.routes';
+const routes: Routes = [{ path: 'users', component: UsersComponent }];
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [provideRouter(routes)],
 };

@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="header-actions">
+    <div class="search">
+      <p-iconField iconPosition="left">
+        <p-inputIcon *ngIf="activeIcon" styleClass="pi pi-search"></p-inputIcon>
+        <p-inputGroup>
+          <input
+            pInputText
+            type="text"
+            (focusout)="controlIcon($event)"
+            (keypress)="controlIcon($event)"
+            (input)="filterActions.emit($event)"
+          />
+          <button class="filter-button" pButton icon="pi pi-sliders-h"></button>
+        </p-inputGroup>
+      </p-iconField>
+    </div>
+    <div class="buttons">
+      <am-button severity="success" label="Novo"></am-button>
+      <am-button severity="danger" label="Excluir"></am-button>
+    </div>
+  </div>
+  <div class="header-title">
+    <p>{{ pageTitle }}</p>
+  </div>
+</header>

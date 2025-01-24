@@ -1,0 +1,9 @@
+<am-page-header
+  (filterActions)="table.filterGlobal($event.target.value, 'contains')"
+  pageTitle="Gestão de usuários"
+></am-page-header>
+<am-grid-data
+  [columns]="columns"
+  (onClickRow)="onRowSelect($event)"
+  [data]="users"
+></am-grid-data>

@@ -1,0 +1,58 @@
+th {
+  background-color: #d9d9d9;
+  color: #1e1e1e78;
+  font-family: "Afacad", sans-serif;
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 400;
+  border: 0;
+}
+
+td {
+  border: 0;
+  color: #103554;
+  font-size: 18px;
+  font-family: "Afacad", sans-serif;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr {
+  background-color: #427ca017;
+}
+
+::ng-deep
+  .p-datatable.p-datatable-striped
+  .p-datatable-tbody
+  > tr:nth-child(2n) {
+  background-color: #d9d9d9;
+}
+
+::ng-deep
+  .p-datatable.p-datatable-hoverable-rows
+  .p-datatable-tbody
+  > tr:not(.p-highlight):hover {
+  transition: all 0.2s;
+  background-color: #829dac;
+}
+
+::ng-deep .p-checkbox-box {
+  background-color: #c6c6c6;
+  border: 0;
+  cursor: pointer;
+}
+
+::ng-deep .p-checkbox-box:hover {
+  border: 1px solid #103554;
+}
+
+::ng-deep .p-checkbox-box.p-highlight {
+  background-color: #829dac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .p-checkbox-icon {
+  color: #103554;
+}
