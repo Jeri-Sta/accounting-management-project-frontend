@@ -12,9 +12,9 @@ export class AmPageHeaderComponent {
   @Output()
   filterActions: EventEmitter<any> = new EventEmitter();
 
-  activeIcon = true;
+  filterField!: string;
 
-  controlIcon(event: any) {
-    this.activeIcon = event.target.defaultValue == '' ? true : false;
+  isFilterEmpty() {
+    return this.filterField == undefined || this.filterField == '';
   }
 }

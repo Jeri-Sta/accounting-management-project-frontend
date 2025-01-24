@@ -6,4 +6,5 @@
   [columns]="columns"
   (onClickRow)="onRowSelect($event)"
   [data]="users"
+  (tableReady)="handleTableReady($event)"
 ></am-grid-data>

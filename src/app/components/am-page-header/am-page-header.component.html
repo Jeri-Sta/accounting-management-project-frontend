@@ -2,13 +2,15 @@
   <div class="header-actions">
     <div class="search">
       <p-iconField iconPosition="left">
-        <p-inputIcon *ngIf="activeIcon" styleClass="pi pi-search"></p-inputIcon>
+        <p-inputIcon
+          *ngIf="isFilterEmpty()"
+          styleClass="pi pi-search"
+        ></p-inputIcon>
         <p-inputGroup>
           <input
             pInputText
             type="text"
-            (focusout)="controlIcon($event)"
-            (keypress)="controlIcon($event)"
+            [(ngModel)]="filterField"
             (input)="filterActions.emit($event)"
           />
           <button class="filter-button" pButton icon="pi pi-sliders-h"></button>

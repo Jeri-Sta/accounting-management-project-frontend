@@ -14,6 +14,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { TableModule } from 'primeng/table';
 import { AmGridDataComponent } from './am-grid-data/am-grid-data.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AmGridDataComponent } from './am-grid-data/am-grid-data.component';
     IconFieldModule,
     InputIconModule,
     TableModule,
+    FormsModule,
   ],
 })
 export class ComponentsModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { UserDto } from '../../../core/entities/user/user.dto';
 import { UserService } from '../../../core/entities/user/user.service';
 import { Table } from 'primeng/table';
@@ -11,9 +11,7 @@ import { Table } from 'primeng/table';
 export class UsersComponent implements OnInit {
   public users!: UserDto[];
   public selectedUsers!: UserDto[];
-
-  @ViewChild('table')
-  table!: Table;
+  public table!: Table;
 
   public columns = [
     { field: 'name', header: 'Name' },
@@ -35,5 +33,9 @@ export class UsersComponent implements OnInit {
 
   onRowSelect(event: any) {
     console.log(event);
+  }
+
+  handleTableReady(table: any) {
+    this.table = table;
   }
 }

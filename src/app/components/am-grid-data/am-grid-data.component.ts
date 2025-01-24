@@ -1,12 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'am-grid-data',
   templateUrl: './am-grid-data.component.html',
   styleUrl: './am-grid-data.component.css',
 })
-export class AmGridDataComponent implements OnInit {
+export class AmGridDataComponent implements AfterViewInit {
   @Input()
   columns!: any[];
   @Input()
@@ -15,7 +23,12 @@ export class AmGridDataComponent implements OnInit {
   @Output()
   onClickRow: EventEmitter<any> = new EventEmitter();
 
+  @ViewChild('table') table!: Table;
+  @Output() tableReady = new EventEmitter<Table>();
+
   selectedRows: any[] = [];
 
-  ngOnInit(): void {}
+  ngAfterViewInit(): void {
+    this.tableReady.emit(this.table);
+  }
 }
