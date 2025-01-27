@@ -3,13 +3,20 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from '../core/core.module';
 import { ComponentsModule } from '../components/components.module';
 import { UsersComponent } from './general-configuration/users/users.component';
-import { TableModule } from 'primeng/table';
 import { UserService } from '../core/entities/user/user.service';
 import { MessageService } from 'primeng/api';
+import { DialogModule } from 'primeng/dialog';
+import { PanelModule } from 'primeng/panel';
 
 @NgModule({
   declarations: [UsersComponent],
-  imports: [CommonModule, CoreModule, ComponentsModule, TableModule],
+  imports: [
+    CommonModule,
+    CoreModule,
+    ComponentsModule,
+    DialogModule,
+    PanelModule,
+  ],
   providers: [UserService, MessageService],
   exports: [UsersComponent],
 })

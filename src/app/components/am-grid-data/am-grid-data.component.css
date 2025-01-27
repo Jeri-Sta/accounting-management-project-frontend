@@ -56,3 +56,17 @@ td {
 ::ng-deep .p-checkbox-icon {
   color: #103554;
 }
+
+::ng-deep .p-datatable .p-sortable-column:hover {
+  transition: all 0.2s;
+  background-color: #829dac;
+}
+
+::ng-deep .p-sortable-column-icon {
+  height: 12px;
+  color: #1e1e1e78;
+}
+
+::ng-deep .p-sortable-column-icon:hover {
+  color: #444d5c;
+}

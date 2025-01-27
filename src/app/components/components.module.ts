@@ -15,6 +15,11 @@ import { InputIconModule } from 'primeng/inputicon';
 import { TableModule } from 'primeng/table';
 import { AmGridDataComponent } from './am-grid-data/am-grid-data.component';
 import { FormsModule } from '@angular/forms';
+import { AmFormComponent } from './am-form/am-form.component';
+import { DialogModule } from 'primeng/dialog';
+import { PanelModule } from 'primeng/panel';
+import { AmDynamicFieldComponent } from './am-dynamic-field/am-dynamic-field.component';
+import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
   declarations: [
@@ -23,6 +28,8 @@ import { FormsModule } from '@angular/forms';
     AmPageFrameComponent,
     AmPageHeaderComponent,
     AmGridDataComponent,
+    AmFormComponent,
+    AmDynamicFieldComponent,
   ],
   exports: [
     AmButtonComponent,
@@ -30,6 +37,8 @@ import { FormsModule } from '@angular/forms';
     AmPageFrameComponent,
     AmPageHeaderComponent,
     AmGridDataComponent,
+    AmFormComponent,
+    AmDynamicFieldComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +52,9 @@ import { FormsModule } from '@angular/forms';
     InputIconModule,
     TableModule,
     FormsModule,
+    DialogModule,
+    PanelModule,
+    BadgeModule,
   ],
 })
 export class ComponentsModule {}

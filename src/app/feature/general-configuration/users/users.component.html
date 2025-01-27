@@ -8,3 +8,9 @@
   [data]="users"
   (tableReady)="handleTableReady($event)"
 ></am-grid-data>
+
+<am-form
+  [fieldOptions]="fieldOptions"
+  (closeForm)="closeFormScreen()"
+  [visibleForm]="visibleForm"
+></am-form>

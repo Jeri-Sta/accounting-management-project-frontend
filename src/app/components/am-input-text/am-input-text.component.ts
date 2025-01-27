@@ -9,5 +9,5 @@ export class AmInputTextComponent {
   @Input()
   placeholder!: string;
   @Input()
-  label!: string;
+  label!: string | undefined;
 }

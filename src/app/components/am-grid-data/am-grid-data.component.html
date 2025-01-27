@@ -7,14 +7,14 @@
   [globalFilterFields]="['name', 'email']"
   [rowHover]="true"
   [(selection)]="selectedRows"
-  (click)="onClickRow.emit($event)"
   [columns]="columns"
 >
   <ng-template pTemplate="header" let-columns>
     <tr>
       <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
-      <th *ngFor="let col of columns">
+      <th [pSortableColumn]="col.field" *ngFor="let col of columns">
         {{ col.header }}
+        <p-sortIcon [field]="col.field" />
       </th>
     </tr>
   </ng-template>
@@ -23,7 +23,7 @@
       <td>
         <p-tableCheckbox [pSelectableRow]="row" [value]="row" />
       </td>
-      <td *ngFor="let col of columns">
+      <td (click)="onClickRow.emit($event)" *ngFor="let col of columns">
         {{ row[col.field] }}
       </td>
     </tr>

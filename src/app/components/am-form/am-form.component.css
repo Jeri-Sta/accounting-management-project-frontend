@@ -1,0 +1,69 @@
+::ng-deep .p-dialog {
+  width: 1148px;
+  height: 637px;
+}
+
+::ng-deep .p-dialog-content {
+  display: flex;
+  flex-direction: row;
+  background-color: #f1eeee;
+  padding-top: 24px;
+}
+
+::ng-deep .p-dialog-header {
+  background-color: #f1eeee;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0;
+  align-items: baseline;
+}
+
+::ng-deep .p-dialog-title {
+  width: 100%;
+  height: 40px;
+  background-color: #427ca029;
+  padding-left: 44px;
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .p-dialog-header button {
+  background-color: #f1eeee;
+  width: 0;
+}
+
+::ng-deep p-panel {
+  flex: 1;
+  background-color: #f1eeee;
+}
+
+::ng-deep .p-panel-title {
+  color: #103554;
+  font-family: "Afacad", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+::ng-deep .p-panel-header {
+  border: 0;
+  background-color: #f1eeee;
+  padding-bottom: 0;
+}
+
+::ng-deep .p-panel-content {
+  border: 0;
+  background-color: #f1eeee;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+}
+
+::ng-deep .p-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: #f1eeee;
+}

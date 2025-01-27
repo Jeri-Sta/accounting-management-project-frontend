@@ -1,6 +1,11 @@
 <div class="field">
   <label class="field-label" for="input">{{ label }}</label>
-  <input id="input" pInputText type="text" [placeholder]="placeholder" />
+  <input
+    id="input"
+    pInputText
+    type="text"
+    [placeholder]="placeholder != undefined ? placeholder : ''"
+  />
   <!-- <small id="username-help">
         Enter your username to reset your password.
     </small> -->

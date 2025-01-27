@@ -1,0 +1,23 @@
+<p-dialog
+  (onHide)="closeForm.emit()"
+  [closable]="true"
+  [modal]="true"
+  [(visible)]="visibleForm"
+  header="Gestão de usuários"
+  [closeOnEscape]="true"
+>
+  <p-panel header="Informações do usuário">
+    @for (field of fieldOptions; track field; let i = $index) {
+    <am-dynamic-field [fieldOptions]="field"></am-dynamic-field>
+    }
+  </p-panel>
+
+  <ng-template pTemplate="footer">
+    <am-button severity="success" label="Salvar"></am-button>
+    <am-button
+      severity="danger"
+      label="Excluir"
+      (click)="closeForm.emit()"
+    ></am-button>
+  </ng-template>
+</p-dialog>

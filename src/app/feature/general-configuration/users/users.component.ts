@@ -12,12 +12,40 @@ export class UsersComponent implements OnInit {
   public users!: UserDto[];
   public selectedUsers!: UserDto[];
   public table!: Table;
+  public visibleForm: boolean = false;
 
   public columns = [
     { field: 'name', header: 'Name' },
     { field: 'email', header: 'Email' },
     { field: 'name', header: 'Data de criação' },
     { field: 'email', header: 'Última alteração' },
+  ];
+
+  public fieldOptions = [
+    {
+      type: 'TEXT',
+      label: 'Nome',
+    },
+    {
+      type: 'TEXT',
+      label: 'Nome',
+    },
+    {
+      type: 'TEXT',
+      label: 'Nome',
+    },
+    {
+      type: 'TEXT',
+      label: 'Nome',
+    },
+    {
+      type: 'TEXT',
+      label: 'Nome',
+    },
+    {
+      type: 'TEXT',
+      label: 'Nome',
+    },
   ];
 
   constructor(private _userService: UserService) {}
@@ -32,10 +60,14 @@ export class UsersComponent implements OnInit {
   }
 
   onRowSelect(event: any) {
-    console.log(event);
+    this.visibleForm = true;
   }
 
   handleTableReady(table: any) {
     this.table = table;
+  }
+
+  closeFormScreen() {
+    this.visibleForm = false;
   }
 }
