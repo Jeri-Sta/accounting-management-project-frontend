@@ -19,6 +19,8 @@ export class AmGridDataComponent implements AfterViewInit {
   columns!: any[];
   @Input()
   data!: any[];
+  @Input()
+  filterFields: string[] = [];
 
   @Output()
   onClickRow: EventEmitter<any> = new EventEmitter();

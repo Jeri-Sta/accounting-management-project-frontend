@@ -88,19 +88,19 @@ export class EntityService<T> {
 
   public insert(entity: T) {
     return this.http
-      .post<T>(`${this.entityUrl}/create`, entity)
+      .post(`${this.entityUrl}/create`, entity, { responseType: 'text' })
       .pipe(this.defaultCatch());
   }
 
   public update(entity: T) {
     return this.http
-      .put<T>(`${this.entityUrl}/update`, entity)
+      .put(`${this.entityUrl}/update`, entity, { responseType: 'text' })
       .pipe(this.defaultCatch());
   }
 
   public delete(id: any) {
     return this.http
-      .delete<T>(`${this.entityUrl}/delete`, { body: { id: id } })
+      .delete(`${this.entityUrl}/${id}`, { responseType: 'text' })
       .pipe(this.defaultCatch());
   }
 

@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { UserDto } from '../../../core/entities/user/user.dto';
 import { UserService } from '../../../core/entities/user/user.service';
 import { Table } from 'primeng/table';
+import ColumnOptions from '../../../shared/column-options';
+import FieldOptions from '../../../shared/field-options';
 
 @Component({
-  selector: 'users',
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
 })
@@ -14,38 +15,38 @@ export class UsersComponent implements OnInit {
   public table!: Table;
   public visibleForm: boolean = false;
 
-  public columns = [
+  public columns: ColumnOptions[] = [
     { field: 'name', header: 'Name' },
     { field: 'email', header: 'Email' },
     { field: 'name', header: 'Data de criação' },
     { field: 'email', header: 'Última alteração' },
   ];
 
-  public fieldOptions = [
-    {
-      type: 'TEXT',
-      label: 'Nome',
-    },
-    {
-      type: 'TEXT',
-      label: 'Nome',
-    },
-    {
-      type: 'TEXT',
-      label: 'Nome',
-    },
-    {
-      type: 'TEXT',
-      label: 'Nome',
-    },
-    {
-      type: 'TEXT',
-      label: 'Nome',
-    },
-    {
-      type: 'TEXT',
-      label: 'Nome',
-    },
+  public fieldOptions: FieldOptions[] = [
+    // {
+    //   type: 'TEXT',
+    //   label: 'Nome',
+    // },
+    // {
+    //   type: 'TEXT',
+    //   label: 'Nome',
+    // },
+    // {
+    //   type: 'TEXT',
+    //   label: 'Nome',
+    // },
+    // {
+    //   type: 'TEXT',
+    //   label: 'Nome',
+    // },
+    // {
+    //   type: 'TEXT',
+    //   label: 'Nome',
+    // },
+    // {
+    //   type: 'TEXT',
+    //   label: 'Nome',
+    // },
   ];
 
   constructor(private _userService: UserService) {}

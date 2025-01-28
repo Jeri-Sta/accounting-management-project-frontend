@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'am-input-text',
@@ -10,4 +11,8 @@ export class AmInputTextComponent {
   placeholder!: string;
   @Input()
   label!: string | undefined;
+  @Input()
+  formGroup!: FormGroup;
+  @Input()
+  controlName!: string;
 }

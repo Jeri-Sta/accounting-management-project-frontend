@@ -1,10 +1,11 @@
-<div class="field">
+<div class="field" [formGroup]="formGroup">
   <label class="field-label" for="input">{{ label }}</label>
   <input
     id="input"
     pInputText
     type="text"
     [placeholder]="placeholder != undefined ? placeholder : ''"
+    [formControlName]="controlName"
   />
   <!-- <small id="username-help">
         Enter your username to reset your password.

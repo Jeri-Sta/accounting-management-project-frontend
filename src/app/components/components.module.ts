@@ -14,11 +14,10 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { TableModule } from 'primeng/table';
 import { AmGridDataComponent } from './am-grid-data/am-grid-data.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AmFormComponent } from './am-form/am-form.component';
 import { DialogModule } from 'primeng/dialog';
 import { PanelModule } from 'primeng/panel';
-import { AmDynamicFieldComponent } from './am-dynamic-field/am-dynamic-field.component';
 import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
@@ -29,7 +28,6 @@ import { BadgeModule } from 'primeng/badge';
     AmPageHeaderComponent,
     AmGridDataComponent,
     AmFormComponent,
-    AmDynamicFieldComponent,
   ],
   exports: [
     AmButtonComponent,
@@ -38,7 +36,6 @@ import { BadgeModule } from 'primeng/badge';
     AmPageHeaderComponent,
     AmGridDataComponent,
     AmFormComponent,
-    AmDynamicFieldComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +52,7 @@ import { BadgeModule } from 'primeng/badge';
     DialogModule,
     PanelModule,
     BadgeModule,
+    ReactiveFormsModule,
   ],
 })
 export class ComponentsModule {}

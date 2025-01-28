@@ -1,0 +1,25 @@
+<am-page-header
+  (filterActions)="table.filterGlobal($event.target.value, 'contains')"
+  pageTitle="Gestão de permissões"
+  (newRegister)="newRegister()"
+  (deleteRegister)="deleteGrid()"
+  [selectedRows]="selectedRows"
+></am-page-header>
+<am-grid-data
+  [columns]="columns"
+  (onClickRow)="onRowSelect($event)"
+  [data]="permissions"
+  (tableReady)="handleTableReady($event)"
+  [filterFields]="filterFields"
+></am-grid-data>
+<am-form
+  formTitle="Gestão de permissões"
+  subTitle="Informações da permissão"
+  [fieldOptions]="fieldOptions"
+  (closeForm)="closeFormScreen()"
+  [visibleForm]="visibleForm"
+  [form]="formGroup"
+  (saveForm)="saveForm()"
+  (deleteForm)="deleteForm()"
+  [isNew]="isNew"
+></am-form>

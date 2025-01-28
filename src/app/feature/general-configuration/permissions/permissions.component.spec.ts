@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AmDynamicFieldComponent } from './am-dynamic-field.component';
+import { PermissionsComponent } from './permissions.component';
 
-describe('AmDynamicFieldComponent', () => {
-  let component: AmDynamicFieldComponent;
-  let fixture: ComponentFixture<AmDynamicFieldComponent>;
+describe('PermissionsComponent', () => {
+  let component: PermissionsComponent;
+  let fixture: ComponentFixture<PermissionsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AmDynamicFieldComponent]
+      imports: [PermissionsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AmDynamicFieldComponent);
+    fixture = TestBed.createComponent(PermissionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

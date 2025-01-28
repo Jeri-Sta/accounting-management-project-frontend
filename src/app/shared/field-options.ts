@@ -1,5 +1,7 @@
 export default interface FieldOptions {
+  name: string;
   label?: string;
-  type: string;
+  type?: string;
   placeholder?: string;
+  required?: boolean;
 }

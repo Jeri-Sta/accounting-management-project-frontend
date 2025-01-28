@@ -3,21 +3,32 @@
   [closable]="true"
   [modal]="true"
   [(visible)]="visibleForm"
-  header="Gestão de usuários"
+  [header]="formTitle"
   [closeOnEscape]="true"
 >
-  <p-panel header="Informações do usuário">
+  <p-panel [header]="subTitle" [formGroup]="form">
     @for (field of fieldOptions; track field; let i = $index) {
-    <am-dynamic-field [fieldOptions]="field"></am-dynamic-field>
+    <am-input-text
+      class="field"
+      [label]="getFieldLabel(field.label, field.required)"
+      [formGroup]="form"
+      *ngIf="field.type == 'TEXT'"
+      [controlName]="field.name"
+    ></am-input-text>
     }
   </p-panel>
 
   <ng-template pTemplate="footer">
-    <am-button severity="success" label="Salvar"></am-button>
+    <am-button
+      severity="success"
+      label="Salvar"
+      (onClickButton)="saveForm.emit()"
+    ></am-button>
     <am-button
       severity="danger"
       label="Excluir"
-      (click)="closeForm.emit()"
+      [disabled]="isNew"
+      (onClickButton)="deleteForm.emit()"
     ></am-button>
   </ng-template>
 </p-dialog>

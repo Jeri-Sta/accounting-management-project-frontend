@@ -25,6 +25,9 @@ export class AmButtonComponent {
   @Input()
   size: 'samll' | 'medium' | 'large' | null | undefined;
 
+  @Input()
+  disabled!: boolean;
+
   @Output()
-  onClick: EventEmitter<any> = new EventEmitter();
+  onClickButton: EventEmitter<void> = new EventEmitter();
 }

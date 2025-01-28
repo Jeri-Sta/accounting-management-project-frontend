@@ -4,7 +4,7 @@
   [value]="data"
   [tableStyle]="{ 'min-width': '50rem' }"
   styleClass="p-datatable-striped"
-  [globalFilterFields]="['name', 'email']"
+  [globalFilterFields]="filterFields"
   [rowHover]="true"
   [(selection)]="selectedRows"
   [columns]="columns"
@@ -23,7 +23,7 @@
       <td>
         <p-tableCheckbox [pSelectableRow]="row" [value]="row" />
       </td>
-      <td (click)="onClickRow.emit($event)" *ngFor="let col of columns">
+      <td (click)="onClickRow.emit(row)" *ngFor="let col of columns">
         {{ row[col.field] }}
       </td>
     </tr>

@@ -18,8 +18,17 @@
       </p-iconField>
     </div>
     <div class="buttons">
-      <am-button severity="success" label="Novo"></am-button>
-      <am-button severity="danger" label="Excluir"></am-button>
+      <am-button
+        (onClickButton)="newRegister.emit()"
+        severity="success"
+        label="Novo"
+      ></am-button>
+      <am-button
+        [disabled]="selectedRows == 0"
+        (onClickButton)="deleteRegister.emit()"
+        severity="danger"
+        label="Excluir"
+      ></am-button>
     </div>
   </div>
   <div class="header-title">

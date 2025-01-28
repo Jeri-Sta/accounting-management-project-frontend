@@ -7,9 +7,10 @@ import { UserService } from '../core/entities/user/user.service';
 import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
 import { PanelModule } from 'primeng/panel';
+import { PermissionsComponent } from './general-configuration/permissions/permissions.component';
 
 @NgModule({
-  declarations: [UsersComponent],
+  declarations: [UsersComponent, PermissionsComponent],
   imports: [
     CommonModule,
     CoreModule,
@@ -18,6 +19,6 @@ import { PanelModule } from 'primeng/panel';
     PanelModule,
   ],
   providers: [UserService, MessageService],
-  exports: [UsersComponent],
+  exports: [UsersComponent, PermissionsComponent],
 })
 export class FeatureModule {}
