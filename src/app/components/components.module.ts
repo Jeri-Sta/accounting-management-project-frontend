@@ -53,6 +53,7 @@ import { BadgeModule } from 'primeng/badge';
     PanelModule,
     BadgeModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class ComponentsModule {}

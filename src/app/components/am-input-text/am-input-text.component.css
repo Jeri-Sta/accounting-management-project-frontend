@@ -27,3 +27,13 @@
   line-height: 24px;
   color: #103554;
 }
+
+::ng-deep .p-inputtext.ng-dirty.ng-invalid {
+  border: solid 1px;
+  border-color: #e24c4c !important;
+}
+
+.error-message {
+  color: #e24c4c;
+  font-family: "Afacad", sans-serif;
+}

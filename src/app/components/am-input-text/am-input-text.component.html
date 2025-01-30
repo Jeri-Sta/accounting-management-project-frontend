@@ -6,8 +6,19 @@
     type="text"
     [placeholder]="placeholder != undefined ? placeholder : ''"
     [formControlName]="controlName"
+    [ngClass]="
+      formGroup.get(controlName)?.invalid && formGroup.get(controlName)?.dirty
+        ? 'ng-invalid ng-dirty'
+        : ''
+    "
   />
-  <!-- <small id="username-help">
-        Enter your username to reset your password.
-    </small> -->
+  <small
+    class="error-message"
+    *ngIf="
+      formGroup.get(controlName)?.invalid && formGroup.get(controlName)?.dirty
+    "
+    id="input"
+  >
+    {{ error }}
+  </small>
 </div>

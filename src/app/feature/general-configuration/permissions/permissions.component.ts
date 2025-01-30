@@ -4,7 +4,12 @@ import ColumnOptions from '../../../shared/column-options';
 import { Table } from 'primeng/table';
 import { PermissionService } from '../../../core/entities/permission/permission.service';
 import FieldOptions from '../../../shared/field-options';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import moment from 'moment';
 import { MessageService } from 'primeng/api';
 
@@ -57,7 +62,8 @@ export class PermissionsComponent implements OnInit {
 
   constructor(
     private _permissionService: PermissionService,
-    private _messageService: MessageService
+    private _messageService: MessageService,
+    private formBuilder: FormBuilder
   ) {}
 
   get selectedRows(): number {
@@ -70,11 +76,11 @@ export class PermissionsComponent implements OnInit {
   }
 
   private getFormGroup() {
-    this.formGroup = new FormGroup({
-      id: new FormControl(''),
-      permissionName: new FormControl('', Validators.required),
-      type: new FormControl('', Validators.required),
-      description: new FormControl(''),
+    this.formGroup = this.formBuilder.group({
+      id: new FormControl(undefined),
+      permissionName: new FormControl(undefined, Validators.required),
+      type: new FormControl(undefined, Validators.required),
+      description: new FormControl(undefined),
       creationDate: new FormControl(moment(new Date()).format('YYYY-MM-DD')),
     });
   }
@@ -108,7 +114,7 @@ export class PermissionsComponent implements OnInit {
     this.visibleForm = true;
   }
 
-  saveForm() {
+  saveForm(): void {
     const observable = this.isNew
       ? this.getInsertObservable()
       : this.getUpdateObservable();

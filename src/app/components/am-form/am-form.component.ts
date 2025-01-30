@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import FieldOptions from '../../shared/field-options';
-import { FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import getErrorMessage from '../../shared/error-utils';
 
 @Component({
   selector: 'am-form',
@@ -38,5 +39,21 @@ export class AmFormComponent {
       finalLabel = required ? name + '*' : name;
     }
     return finalLabel;
+  }
+
+  save() {
+    this.validateFormGroup(this.form);
+    this.form.updateValueAndValidity();
+    if (this.form.valid) {
+      this.saveForm.emit();
+    }
+  }
+
+  validateFormGroup(formGroup: FormGroup): void {
+    Object.keys(formGroup.controls).forEach((field: any) => {
+      const control = formGroup.get(field);
+      control?.updateValueAndValidity();
+      control?.markAsDirty();
+    });
   }
 }

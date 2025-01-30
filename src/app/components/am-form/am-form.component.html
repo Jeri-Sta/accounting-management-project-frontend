@@ -14,6 +14,7 @@
       [formGroup]="form"
       *ngIf="field.type == 'TEXT'"
       [controlName]="field.name"
+      [errors]="form.get(field.name)?.errors"
     ></am-input-text>
     }
   </p-panel>
@@ -22,7 +23,7 @@
     <am-button
       severity="success"
       label="Salvar"
-      (onClickButton)="saveForm.emit()"
+      (onClickButton)="save()"
     ></am-button>
     <am-button
       severity="danger"
