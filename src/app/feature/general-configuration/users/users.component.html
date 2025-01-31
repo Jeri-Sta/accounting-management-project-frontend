@@ -1,18 +1,26 @@
 <am-page-header
   (filterActions)="table.filterGlobal($event.target.value, 'contains')"
   pageTitle="Gestão de usuários"
+  (newRegister)="newRegister()"
+  (deleteRegister)="deleteGrid()"
+  [selectedRows]="selectedRows"
+  [showFilter]="true"
 ></am-page-header>
 <am-grid-data
   [columns]="columns"
   (onClickRow)="onRowSelect($event)"
   [data]="users"
   (tableReady)="handleTableReady($event)"
+  [filterFields]="filterFields"
 ></am-grid-data>
-
 <am-form
   formTitle="Gestão de usuários"
   subTitle="Informações do usuário"
   [fieldOptions]="fieldOptions"
   (closeForm)="closeFormScreen()"
   [visibleForm]="visibleForm"
+  [form]="formGroup"
+  (saveForm)="saveForm()"
+  (deleteForm)="deleteForm()"
+  [isNew]="isNew"
 ></am-form>

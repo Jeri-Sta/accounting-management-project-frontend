@@ -16,6 +16,14 @@
       [controlName]="field.name"
       [errors]="form.get(field.name)?.errors"
     ></am-input-text>
+    <am-password
+      class="field"
+      *ngIf="field.type == 'PASSWORD'"
+      [label]="getFieldLabel(field.label, field.required)"
+      [formGroup]="form"
+      [controlName]="field.name"
+      [errors]="form.get(field.name)?.errors"
+    ></am-password>
     }
   </p-panel>
 

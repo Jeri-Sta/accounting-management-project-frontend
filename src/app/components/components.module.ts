@@ -19,6 +19,8 @@ import { AmFormComponent } from './am-form/am-form.component';
 import { DialogModule } from 'primeng/dialog';
 import { PanelModule } from 'primeng/panel';
 import { BadgeModule } from 'primeng/badge';
+import { PasswordModule } from 'primeng/password';
+import { AmPasswordComponent } from './am-password/am-password.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { BadgeModule } from 'primeng/badge';
     AmPageHeaderComponent,
     AmGridDataComponent,
     AmFormComponent,
+    AmPasswordComponent,
   ],
   exports: [
     AmButtonComponent,
@@ -36,6 +39,7 @@ import { BadgeModule } from 'primeng/badge';
     AmPageHeaderComponent,
     AmGridDataComponent,
     AmFormComponent,
+    AmPasswordComponent,
   ],
   imports: [
     CommonModule,
@@ -54,6 +58,7 @@ import { BadgeModule } from 'primeng/badge';
     BadgeModule,
     ReactiveFormsModule,
     FormsModule,
+    PasswordModule,
   ],
 })
 export class ComponentsModule {}

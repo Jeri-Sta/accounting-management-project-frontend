@@ -56,9 +56,11 @@
   background-color: #f1eeee;
   gap: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
   grid-auto-flow: column;
+  height: auto;
+  place-items: start;
 }
 
 ::ng-deep .p-dialog-footer {

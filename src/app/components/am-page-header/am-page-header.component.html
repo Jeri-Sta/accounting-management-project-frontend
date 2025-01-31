@@ -13,7 +13,12 @@
             [(ngModel)]="filterField"
             (input)="filterActions.emit($event)"
           />
-          <button class="filter-button" pButton icon="pi pi-sliders-h"></button>
+          <button
+            *ngIf="showFilter"
+            class="filter-button"
+            pButton
+            icon="pi pi-sliders-h"
+          ></button>
         </p-inputGroup>
       </p-iconField>
     </div>

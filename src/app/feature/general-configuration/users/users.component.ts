@@ -4,6 +4,13 @@ import { UserService } from '../../../core/entities/user/user.service';
 import { Table } from 'primeng/table';
 import ColumnOptions from '../../../shared/column-options';
 import FieldOptions from '../../../shared/field-options';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   templateUrl: './users.component.html',
@@ -23,35 +30,56 @@ export class UsersComponent implements OnInit {
   ];
 
   public fieldOptions: FieldOptions[] = [
-    // {
-    //   type: 'TEXT',
-    //   label: 'Nome',
-    // },
-    // {
-    //   type: 'TEXT',
-    //   label: 'Nome',
-    // },
-    // {
-    //   type: 'TEXT',
-    //   label: 'Nome',
-    // },
-    // {
-    //   type: 'TEXT',
-    //   label: 'Nome',
-    // },
-    // {
-    //   type: 'TEXT',
-    //   label: 'Nome',
-    // },
-    // {
-    //   type: 'TEXT',
-    //   label: 'Nome',
-    // },
+    {
+      name: 'name',
+      type: 'TEXT',
+      label: 'Nome',
+      required: true,
+    },
+    {
+      name: 'email',
+      type: 'TEXT',
+      label: 'E-mail',
+      required: true,
+    },
+    {
+      name: 'password',
+      type: 'PASSWORD',
+      label: 'Senha',
+      required: true,
+    },
   ];
 
-  constructor(private _userService: UserService) {}
+  public filterFields: string[] = ['name', 'email'];
+
+  formGroup!: FormGroup;
+  isNew!: boolean;
+
+  constructor(
+    private _userService: UserService,
+    private _messageService: MessageService,
+    private formBuilder: FormBuilder
+  ) {}
+
+  get selectedRows(): number {
+    return this.table ? this.table.selection.length : 0;
+  }
+
   ngOnInit(): void {
     this.getUsers();
+    this.getFormGroup();
+  }
+
+  private getFormGroup() {
+    this.formGroup = this.formBuilder.group({
+      id: new FormControl(undefined),
+      name: new FormControl(undefined, Validators.required),
+      email: new FormControl(undefined, [
+        Validators.required,
+        Validators.email,
+      ]),
+      password: new FormControl(undefined, Validators.required),
+    });
   }
 
   public getUsers() {
@@ -60,15 +88,77 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  onRowSelect(event: any) {
-    this.visibleForm = true;
-  }
-
   handleTableReady(table: any) {
     this.table = table;
   }
 
+  onRowSelect(row: any) {
+    this.isNew = false;
+    this.formGroup.patchValue(row);
+    this.visibleForm = true;
+  }
+
   closeFormScreen() {
+    this.formGroup.reset();
     this.visibleForm = false;
+  }
+
+  newRegister() {
+    this.isNew = true;
+    this.visibleForm = true;
+  }
+
+  saveForm(): void {
+    const observable = this.isNew
+      ? this.getInsertObservable()
+      : this.getUpdateObservable();
+
+    observable.subscribe(() => {
+      this._messageService.add({
+        severity: 'success',
+        summary: 'Sucesso',
+        detail: 'O registro foi criado com sucesso!',
+      });
+      this.formGroup.reset();
+      this.visibleForm = false;
+      this.getUsers();
+    });
+  }
+
+  getInsertObservable() {
+    return this._userService.insert(this.formGroup.getRawValue());
+  }
+
+  getUpdateObservable() {
+    return this._userService.update(this.formGroup.getRawValue());
+  }
+
+  deleteForm() {
+    this._userService.delete(this.formGroup.get('id')?.value).subscribe(() => {
+      this._messageService.add({
+        severity: 'success',
+        summary: 'Sucesso',
+        detail: 'O registro foi excluído com sucesso!',
+      });
+      this.formGroup.reset();
+      this.visibleForm = false;
+      this.getUsers();
+    });
+  }
+
+  deleteGrid() {
+    const selectedRecords: UserDto[] = this.table.selection;
+    const idsToDelete: number[] = selectedRecords.map((record) => record.id);
+
+    idsToDelete.forEach((id) => {
+      this._userService.delete(id).subscribe(() => {
+        this.getUsers();
+      });
+    });
+    this._messageService.add({
+      severity: 'success',
+      summary: 'Sucesso',
+      detail: 'Os registros foram excluídos com sucesso!',
+    });
   }
 }

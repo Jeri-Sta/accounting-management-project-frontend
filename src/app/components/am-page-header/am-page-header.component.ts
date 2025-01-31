@@ -10,6 +10,8 @@ export class AmPageHeaderComponent {
   pageTitle!: string;
   @Input()
   selectedRows!: number;
+  @Input()
+  showFilter: boolean = true;
 
   @Output()
   filterActions: EventEmitter<any> = new EventEmitter();
