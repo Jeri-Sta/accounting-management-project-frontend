@@ -21,6 +21,8 @@ export class AmFormComponent {
   form!: FormGroup;
   @Input()
   isNew!: boolean;
+  @Input()
+  loading: boolean = false;
 
   @Output()
   closeForm: EventEmitter<any> = new EventEmitter();

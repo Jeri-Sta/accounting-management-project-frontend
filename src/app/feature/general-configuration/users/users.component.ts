@@ -11,6 +11,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import {catchError, finalize} from "rxjs";
 
 @Component({
   templateUrl: './users.component.html',
@@ -21,6 +22,7 @@ export class UsersComponent implements OnInit {
   public selectedUsers!: UserDto[];
   public table!: Table;
   public visibleForm: boolean = false;
+  public loading: boolean = false;
 
   public columns: ColumnOptions[] = [
     { field: 'name', header: 'Name' },
@@ -113,7 +115,12 @@ export class UsersComponent implements OnInit {
       ? this.getInsertObservable()
       : this.getUpdateObservable();
 
-    observable.subscribe(() => {
+    this.loading = true;
+    observable
+      .pipe(
+        finalize(() => this.loading = false)
+      )
+      .subscribe(() => {
       this._messageService.add({
         severity: 'success',
         summary: 'Sucesso',
@@ -122,6 +129,7 @@ export class UsersComponent implements OnInit {
       this.formGroup.reset();
       this.visibleForm = false;
       this.getUsers();
+      this.loading = false;
     });
   }
 
@@ -134,7 +142,12 @@ export class UsersComponent implements OnInit {
   }
 
   deleteForm() {
-    this._userService.delete(this.formGroup.get('id')?.value).subscribe(() => {
+    this.loading = true;
+    this._userService.delete(this.formGroup.get('id')?.value)
+      .pipe(
+        finalize(() => this.loading = false)
+      )
+      .subscribe(() => {
       this._messageService.add({
         severity: 'success',
         summary: 'Sucesso',
@@ -143,6 +156,7 @@ export class UsersComponent implements OnInit {
       this.formGroup.reset();
       this.visibleForm = false;
       this.getUsers();
+      this.loading = false;
     });
   }
 

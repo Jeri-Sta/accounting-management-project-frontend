@@ -32,12 +32,14 @@
       severity="success"
       label="Salvar"
       (onClickButton)="save()"
+      [isLoading]="loading"
     ></am-button>
     <am-button
       severity="danger"
       label="Excluir"
       [disabled]="isNew"
       (onClickButton)="deleteForm.emit()"
+      [isLoading]="loading"
     ></am-button>
   </ng-template>
 </p-dialog>

@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import moment from 'moment';
 import { MessageService } from 'primeng/api';
+import {finalize} from "rxjs";
 
 @Component({
   templateUrl: './permissions.component.html',
@@ -21,6 +22,7 @@ export class PermissionsComponent implements OnInit {
   permissions!: PermissionDto[];
   table!: Table;
   visibleForm: boolean = false;
+  loading: boolean = false;
 
   columns: ColumnOptions[] = [
     { header: 'Nome da permissão', field: 'permissionName' },
@@ -119,7 +121,12 @@ export class PermissionsComponent implements OnInit {
       ? this.getInsertObservable()
       : this.getUpdateObservable();
 
-    observable.subscribe(() => {
+    this.loading = true;
+    observable
+      .pipe(
+        finalize(() => this.loading = false)
+      )
+      .subscribe(() => {
       this._messageService.add({
         severity: 'success',
         summary: 'Sucesso',
@@ -128,6 +135,7 @@ export class PermissionsComponent implements OnInit {
       this.formGroup.reset();
       this.visibleForm = false;
       this.getPermissions();
+      this.loading = false;
     });
   }
 
@@ -140,8 +148,12 @@ export class PermissionsComponent implements OnInit {
   }
 
   deleteForm() {
+    this.loading = true;
     this._permissionService
       .delete(this.formGroup.get('id')?.value)
+      .pipe(
+        finalize(() => this.loading = false)
+      )
       .subscribe(() => {
         this._messageService.add({
           severity: 'success',
@@ -151,6 +163,7 @@ export class PermissionsComponent implements OnInit {
         this.formGroup.reset();
         this.visibleForm = false;
         this.getPermissions();
+        this.loading = false;
       });
   }
 

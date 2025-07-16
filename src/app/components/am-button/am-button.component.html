@@ -4,6 +4,6 @@
   [label]="label"
   [severity]="severity ? severity : 'primary'"
   [ngClass]="size"
-  [disabled]="disabled"
+  [disabled]="disabled || isLoading"
   (click)="onClickButton.emit()"
 ></button>

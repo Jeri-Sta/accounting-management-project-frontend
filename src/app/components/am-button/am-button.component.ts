@@ -26,6 +26,9 @@ export class AmButtonComponent {
   size: 'samll' | 'medium' | 'large' | null | undefined;
 
   @Input()
+  isLoading = false;
+
+  @Input()
   disabled!: boolean;
 
   @Output()
