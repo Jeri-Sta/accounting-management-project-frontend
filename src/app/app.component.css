@@ -1,0 +1,49 @@
+::ng-deep .p-toast-message-content {
+  padding: 1rem;
+}
+
+::ng-deep .p-toast-message-icon {
+  display: none;
+}
+
+::ng-deep button.p-toast-icon-close {
+  border: none;
+  border-radius: 0;
+  height: 1rem;
+  align-items: normal;
+}
+
+::ng-deep button.p-toast-icon-close:hover {
+  background: none;
+}
+
+::ng-deep .p-toast .p-toast-message {
+  border: none;
+}
+
+::ng-deep .p-toast-summary {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+::ng-deep .p-toast-message-text {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+::ng-deep .p-toast-message-error {
+  color: rgb(111, 17, 17);
+  background: rgba(223, 122, 119, 0.6);
+}
+::ng-deep .p-toast-message-error .p-toast-icon-close {
+  color: rgb(111, 17, 17);
+}
+
+::ng-deep .p-toast-message-success {
+  color: rgba(16, 53, 84, 1);
+  background: rgba(66, 160, 122, 0.6)
+}
+::ng-deep .p-toast-message-success .p-toast-icon-close {
+  color: rgba(16, 53, 84, 1);
+}
