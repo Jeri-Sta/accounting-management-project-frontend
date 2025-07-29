@@ -1,0 +1,49 @@
+<html>
+  <body (click)="changeHelp(true)">
+    <div class="form-container">
+      <div class="upper-container">
+        <p>ContaLogic</p>
+        <span class="upper-line"></span>
+      </div>
+      <div class="middle-conteiner">
+        <span class="middle-left-line"></span>
+        <div class="middle-form-container">
+          <div class="logo-container">
+            <img ngSrc="./assets/header-logo.png" alt="ContaLogic Logo" height="900" width="1200"/>
+          </div>
+          <div class="fields-container">
+            <div class="fields">
+              <am-input-text label="Email:" [formGroup]="formGroup" controlName="email" [errors]="formGroup.get('email')?.errors"
+              ></am-input-text>
+              <am-password label="Senha:" [formGroup]="formGroup" controlName="password" [errors]="formGroup.get('password')?.errors"></am-password>
+            </div>
+            <div class="links">
+              <span>Crie uma conta</span>
+              <span>Esqueceu sua senha?</span>
+            </div>
+            <div class="login-button">
+              <am-button
+                severity="info"
+                label="Entrar"
+              ></am-button>
+            </div>
+          </div>
+        </div>
+        <span class="middle-right-line"></span>
+      </div>
+      <div class="lower-container">
+        <span class="lower-line"></span>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <div class="help-card" [class.active]="displayed" *ngIf="displayed">
+      <p>Olá! Precisa de ajuda ou gostaria de relatar algum problema?</p>
+      <p>{{'Entre em contato: contalogiccont@gmail.com'}}</p>
+    </div>
+    <div class="help-circle" (click)="changeHelp()">
+      <p>?</p>
+    </div>
+  </footer>
+</html>
+

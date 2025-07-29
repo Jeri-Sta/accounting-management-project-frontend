@@ -38,6 +38,15 @@
   border: 0;
 }
 
+::ng-deep .p-button-info {
+  background-color: #769CB4B0;
+  border: 0;
+
+  ::ng-deep .p-button-label {
+    color: #103554;
+  }
+}
+
 ::ng-deep button.p-button-success:focus {
   box-shadow: 0 0 0 0.2rem #bbf7d0;
 }
