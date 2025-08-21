@@ -12,7 +12,7 @@ import { Table } from 'primeng/table';
 @Component({
   selector: 'am-grid-data',
   templateUrl: './am-grid-data.component.html',
-  styleUrl: './am-grid-data.component.css',
+  styleUrls: ['./am-grid-data.component.scss', './am-grid-data.component.notebook.scss'],
 })
 export class AmGridDataComponent implements AfterViewInit {
   @Input()

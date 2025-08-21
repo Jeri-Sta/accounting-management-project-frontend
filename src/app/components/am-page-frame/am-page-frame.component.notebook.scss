@@ -1,0 +1,23 @@
+@media (max-height: 900px) {
+  .header {
+    height: 50px;
+  }
+  .container {
+    margin-top: 50px;
+    height: calc(100vh - 50px);
+
+    .menu {
+      top: 50px;
+      height: calc(100vh - 50px);
+      width: 200px;
+
+      a, button {
+        font-size: 15px;
+      }
+    }
+
+    .content {
+      margin-left: 200px;
+    }
+  }
+}

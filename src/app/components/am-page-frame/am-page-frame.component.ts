@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'am-page-frame',
   templateUrl: './am-page-frame.component.html',
-  styleUrl: './am-page-frame.component.css',
+  styleUrls: ['./am-page-frame.component.scss', './am-page-frame.component.notebook.scss'],
 })
 export class AmPageFrameComponent {
   constructor(public router: Router) {}

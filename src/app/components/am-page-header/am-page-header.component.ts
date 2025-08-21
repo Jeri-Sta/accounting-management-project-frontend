@@ -3,7 +3,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'am-page-header',
   templateUrl: './am-page-header.component.html',
-  styleUrl: './am-page-header.component.css',
+  styleUrls: ['./am-page-header.component.scss', './am-page-header.component.notebook.scss'],
 })
 export class AmPageHeaderComponent {
   @Input()

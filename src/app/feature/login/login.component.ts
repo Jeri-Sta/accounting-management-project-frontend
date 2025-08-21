@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   selector: 'am-login',
   standalone: false,
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss', './login.component.notebook.scss'],
 })
 export class LoginComponent implements OnInit{
   protected displayed: boolean = false;

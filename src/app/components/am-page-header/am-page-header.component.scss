@@ -1,0 +1,91 @@
+.header {
+  .header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+
+    .search {
+      ::ng-deep .p-inputtext {
+        width: 244px;
+        height: 36px;
+        border: 0;
+        background: #1e1e1e1a;
+        border-radius: 5px 0 0 5px;
+      }
+
+      ::ng-deep .p-inputtext:enabled:hover {
+        border: 0;
+      }
+
+      ::ng-deep .p-inputtext:enabled:focus {
+        box-shadow: none;
+      }
+
+      ::ng-deep .p-inputgroup {
+        display: flex;
+      }
+
+      ::ng-deep .p-inputgroup-addon {
+        height: 36px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        background-color: #1e1e1e1a;
+        border: 0;
+      }
+
+      ::ng-deep .p-input-icon {
+        color: #030303;
+      }
+
+      ::ng-deep .filter-button.p-button {
+        width: 50px;
+        border: 0;
+        background-color: #1e1e1e1a;
+        border-radius: 0 5px 5px 0;
+      }
+
+      ::ng-deep .p-button-icon {
+        color: #030303;
+      }
+
+      ::ng-deep .p-icon-field {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ::ng-deep button.p-button:focus {
+        box-shadow: none;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      height: 30px;
+
+      ::ng-deep .p-button {
+        height: 30px;
+      }
+    }
+  }
+
+  .header-title {
+    background-color: #427ca0b8;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+
+    p {
+      color: #103554;
+      font-family: "Afacad", sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+}
