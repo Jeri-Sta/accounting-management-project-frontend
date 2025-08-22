@@ -7,6 +7,7 @@
   [globalFilterFields]="filterFields"
   [rowHover]="true"
   [(selection)]="selectedRows"
+  (selectionChange)="updateSelection($event)"
   [columns]="columns"
   *ngIf="!data || data.length > 0"
 >

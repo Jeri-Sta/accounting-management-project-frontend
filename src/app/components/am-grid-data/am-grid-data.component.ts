@@ -28,9 +28,15 @@ export class AmGridDataComponent implements AfterViewInit {
   @ViewChild('table') table!: Table;
   @Output() tableReady = new EventEmitter<Table>();
 
-  selectedRows: any[] = [];
+  @Input() selectedRows: any[] = [];
+  @Output() selectedRowsChange = new EventEmitter<any[]>();
 
   ngAfterViewInit(): void {
     this.tableReady.emit(this.table);
+  }
+
+  updateSelection(event: any): void {
+    this.selectedRows = event;
+    this.selectedRowsChange.emit(this.selectedRows);
   }
 }

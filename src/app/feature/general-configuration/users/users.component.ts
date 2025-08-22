@@ -19,7 +19,6 @@ import {finalize} from "rxjs";
 })
 export class UsersComponent implements OnInit {
   public users!: UserDto[];
-  public selectedUsers!: UserDto[];
   public table!: Table;
   public visibleForm: boolean = false;
   public loading: boolean = false;
@@ -53,6 +52,7 @@ export class UsersComponent implements OnInit {
   ];
 
   public filterFields: string[] = ['name', 'email'];
+  selectedRows: any[] = [];
 
   formGroup!: FormGroup;
   isNew!: boolean;
@@ -63,8 +63,8 @@ export class UsersComponent implements OnInit {
     private readonly formBuilder: FormBuilder,
   ) {}
 
-  get selectedRows(): number {
-    return this.table ? this.table.selection.length : 0;
+  onChangeSelection(event: any) {
+    this.selectedRows = event;
   }
 
   ngOnInit(): void {
@@ -161,7 +161,7 @@ export class UsersComponent implements OnInit {
   }
 
   deleteGrid() {
-    const selectedRecords: UserDto[] = this.table.selection;
+    const selectedRecords: UserDto[] = this.selectedRows;
     const idsToDelete: number[] = selectedRecords.map((record) => record.id);
 
     idsToDelete.forEach((id) => {

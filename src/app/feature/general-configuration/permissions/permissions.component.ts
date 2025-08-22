@@ -61,15 +61,16 @@ export class PermissionsComponent implements OnInit {
 
   formGroup!: FormGroup;
   isNew!: boolean;
+  selectedRows: any[] = [];
 
   constructor(
-    private _permissionService: PermissionService,
-    private _messageService: MessageService,
-    private formBuilder: FormBuilder
+    private readonly _permissionService: PermissionService,
+    private readonly _messageService: MessageService,
+    private readonly formBuilder: FormBuilder
   ) {}
 
-  get selectedRows(): number {
-    return this.table ? this.table.selection.length : 0;
+  onChangeSelection(event: any) {
+    this.selectedRows = event;
   }
 
   ngOnInit(): void {
@@ -168,7 +169,7 @@ export class PermissionsComponent implements OnInit {
   }
 
   deleteGrid() {
-    const selectedRecords: PermissionDto[] = this.table.selection;
+    const selectedRecords: PermissionDto[] = this.selectedRows;
     const idsToDelete: number[] = selectedRecords.map((record) => record.id);
 
     idsToDelete.forEach((id) => {

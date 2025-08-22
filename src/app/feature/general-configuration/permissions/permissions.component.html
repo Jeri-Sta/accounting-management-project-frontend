@@ -3,7 +3,7 @@
   pageTitle="Gestão de permissões"
   (newRegister)="newRegister()"
   (deleteRegister)="deleteGrid()"
-  [selectedRows]="selectedRows"
+  [selectedRows]="selectedRows.length"
   [showFilter]="false"
 ></am-page-header>
 <am-grid-data
@@ -12,6 +12,8 @@
   [data]="permissions"
   (tableReady)="handleTableReady($event)"
   [filterFields]="filterFields"
+  (selectedRowsChange)="onChangeSelection($event)"
+  [(selectedRows)]="selectedRows"
 ></am-grid-data>
 <am-form
   formTitle="Gestão de permissões"
