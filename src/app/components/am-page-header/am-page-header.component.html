@@ -29,7 +29,7 @@
         label="Novo"
       ></am-button>
       <am-button
-        [disabled]="selectedRows == 0"
+        [disabled]="selectedRows === 0"
         (onClickButton)="deleteRegister.emit()"
         severity="danger"
         label="Excluir"

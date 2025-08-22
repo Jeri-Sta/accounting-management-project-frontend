@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { UserDto } from '../../../core/entities/user/user.dto';
 import { UserService } from '../../../core/entities/user/user.service';
 import { Table } from 'primeng/table';
@@ -11,7 +11,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import {catchError, finalize} from "rxjs";
+import {finalize} from "rxjs";
 
 @Component({
   templateUrl: './users.component.html',
@@ -58,9 +58,9 @@ export class UsersComponent implements OnInit {
   isNew!: boolean;
 
   constructor(
-    private _userService: UserService,
-    private _messageService: MessageService,
-    private formBuilder: FormBuilder
+    private readonly _userService: UserService,
+    private readonly _messageService: MessageService,
+    private readonly formBuilder: FormBuilder,
   ) {}
 
   get selectedRows(): number {

@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import FieldOptions from '../../shared/field-options';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
-import getErrorMessage from '../../shared/error-utils';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'am-form',
@@ -30,10 +29,6 @@ export class AmFormComponent {
   saveForm: EventEmitter<any> = new EventEmitter();
   @Output()
   deleteForm: EventEmitter<any> = new EventEmitter();
-
-  getFormControl(name: string): FormControl {
-    return this.form.get(name) as FormControl;
-  }
 
   getFieldLabel(name?: string, required?: boolean): string {
     let finalLabel = '';

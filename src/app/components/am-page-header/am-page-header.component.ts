@@ -25,8 +25,4 @@ export class AmPageHeaderComponent {
   isFilterEmpty() {
     return this.filterField == undefined || this.filterField == '';
   }
-
-  teste() {
-    console.log('Teste');
-  }
 }

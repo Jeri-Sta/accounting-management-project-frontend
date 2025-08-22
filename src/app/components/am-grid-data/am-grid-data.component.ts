@@ -3,7 +3,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -15,6 +14,7 @@ import { Table } from 'primeng/table';
   styleUrls: ['./am-grid-data.component.scss', './am-grid-data.component.notebook.scss'],
 })
 export class AmGridDataComponent implements AfterViewInit {
+
   @Input()
   columns!: any[];
   @Input()
