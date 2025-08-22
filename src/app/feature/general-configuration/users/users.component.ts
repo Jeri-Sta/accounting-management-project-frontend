@@ -71,4 +71,10 @@ export class UsersComponent extends AbstractCrud<UserDto> implements OnInit {
       password: new FormControl(undefined, Validators.required),
     });
   }
+
+  protected override getRegisters() {
+    return this.entityService.list().subscribe((registers) => {
+      this.registers = (registers as UserDto[]).filter((dto: UserDto) => dto.active);
+    });
+  }
 }
