@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
 import {
-  AbstractControl,
-  FormControl,
   FormGroup,
   ValidationErrors,
 } from '@angular/forms';
