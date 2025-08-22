@@ -1,27 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import { UserDto } from '../../../core/entities/user/user.dto';
 import { UserService } from '../../../core/entities/user/user.service';
-import { Table } from 'primeng/table';
 import ColumnOptions from '../../../shared/column-options';
 import FieldOptions from '../../../shared/field-options';
 import {
   FormBuilder,
   FormControl,
-  FormGroup,
   Validators,
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import {finalize} from "rxjs";
+import {AbstractCrud} from "../../abstract-crud";
 
 @Component({
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
 })
-export class UsersComponent implements OnInit {
-  public users!: UserDto[];
-  public table!: Table;
-  public visibleForm: boolean = false;
-  public loading: boolean = false;
+export class UsersComponent extends AbstractCrud<UserDto> implements OnInit {
 
   public columns: ColumnOptions[] = [
     { field: 'name', header: 'Name' },
@@ -52,27 +46,21 @@ export class UsersComponent implements OnInit {
   ];
 
   public filterFields: string[] = ['name', 'email'];
-  selectedRows: any[] = [];
-
-  formGroup!: FormGroup;
-  isNew!: boolean;
 
   constructor(
-    private readonly _userService: UserService,
-    private readonly _messageService: MessageService,
+    _userService: UserService,
+    _messageService: MessageService,
     private readonly formBuilder: FormBuilder,
-  ) {}
-
-  onChangeSelection(event: any) {
-    this.selectedRows = event;
+  ) {
+    super(_userService, _messageService);
   }
 
   ngOnInit(): void {
-    this.getUsers();
+    this.getRegisters();
     this.getFormGroup();
   }
 
-  private getFormGroup() {
+  protected override getFormGroup() {
     this.formGroup = this.formBuilder.group({
       id: new FormControl(undefined),
       name: new FormControl(undefined, Validators.required),
@@ -81,98 +69,6 @@ export class UsersComponent implements OnInit {
         Validators.email,
       ]),
       password: new FormControl(undefined, Validators.required),
-    });
-  }
-
-  public getUsers() {
-    return this._userService.list().subscribe((users) => {
-      this.users = users as UserDto[];
-    });
-  }
-
-  handleTableReady(table: any) {
-    this.table = table;
-  }
-
-  onRowSelect(row: any) {
-    this.isNew = false;
-    this.formGroup.patchValue(row);
-    this.visibleForm = true;
-  }
-
-  closeFormScreen() {
-    this.formGroup.reset();
-    this.visibleForm = false;
-  }
-
-  newRegister() {
-    this.isNew = true;
-    this.visibleForm = true;
-  }
-
-  saveForm(): void {
-    const observable = this.isNew
-      ? this.getInsertObservable()
-      : this.getUpdateObservable();
-
-    this.loading = true;
-    observable
-      .pipe(
-        finalize(() => this.loading = false)
-      )
-      .subscribe(() => {
-      this._messageService.add({
-        severity: 'success',
-        summary: 'Sucesso',
-        detail: 'O registro foi criado com sucesso!',
-      });
-      this.formGroup.reset();
-      this.visibleForm = false;
-      this.getUsers();
-      this.loading = false;
-    });
-  }
-
-  getInsertObservable() {
-    return this._userService.insert(this.formGroup.getRawValue());
-  }
-
-  getUpdateObservable() {
-    return this._userService.update(this.formGroup.getRawValue());
-  }
-
-  deleteForm() {
-    this.loading = true;
-    this._userService.delete(this.formGroup.get('id')?.value)
-      .pipe(
-        finalize(() => this.loading = false)
-      )
-      .subscribe(() => {
-      this._messageService.add({
-        severity: 'success',
-        summary: 'Sucesso',
-        detail: 'O registro foi excluído com sucesso!',
-      });
-      this.formGroup.reset();
-      this.visibleForm = false;
-      this.getUsers();
-      this.loading = false;
-    });
-  }
-
-  deleteGrid() {
-    const selectedRecords: UserDto[] = this.selectedRows;
-    const idsToDelete: number[] = selectedRecords.map((record) => record.id);
-
-    idsToDelete.forEach((id) => {
-      this._userService.delete(id).subscribe(() => {
-        this.getUsers();
-      });
-    });
-    this._messageService.add({
-      severity: 'success',
-      summary: 'Sucesso',
-      detail: 'Os registros foram excluídos com sucesso!',
     });
   }
 }
