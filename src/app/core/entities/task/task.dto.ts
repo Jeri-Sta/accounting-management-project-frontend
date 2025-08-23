@@ -6,13 +6,13 @@ export interface TaskDto {
   taskName: string;
   additionalInformation: string;
   recurringType: string;
-  expirationDate: string;
+  expirationDate: string | undefined;
   generatesFine: boolean;
   taskNumber: number;
   taskStatus: string;
   automaticallyGenerating: boolean;
-  generationEndDate: string;
+  generationEndDate: string | undefined;
   pendingFlag: boolean;
   previousFlag: boolean;
-  taskCreationDate: string;
+  taskCreationDate: string | undefined;
 }

@@ -1,4 +1,5 @@
-import {GenericType} from "../core/enums/GenericType";
+import {GenericType} from "../core/enums/generic-type";
+import FilterOptions from "./filter-options";
 
 export default interface FieldOptions {
   name: string;
@@ -7,5 +8,5 @@ export default interface FieldOptions {
   placeholder?: string;
   required?: boolean;
   options?: GenericType[];
-  lookupValues?: any[];
+  filterOptions?: FilterOptions;
 }

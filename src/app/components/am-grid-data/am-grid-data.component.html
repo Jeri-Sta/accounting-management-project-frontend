@@ -26,7 +26,13 @@
         <p-tableCheckbox [pSelectableRow]="row" [value]="row" />
       </td>
       <td (click)="onClickRow.emit(row)" *ngFor="let col of columns">
-        {{ row[col.field] }}
+        @if (col.type == ColumnType.DATE) {
+          {{ getFormattedDate(row[col.field]) }}
+        } @else if (col.type == ColumnType.BOOLEAN) {
+          {{ row[col.field] ? 'Sim' : 'Não' }}
+        } @else {
+          {{ row[col.field] }}
+        }
       </td>
     </tr>
   </ng-template>

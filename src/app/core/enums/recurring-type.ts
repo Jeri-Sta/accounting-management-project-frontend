@@ -1,4 +1,4 @@
-import {GenericType} from "./GenericType";
+import {GenericType} from "./generic-type";
 
 export enum RecurringType {
   ANUAL = "Anual",

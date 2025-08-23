@@ -30,7 +30,7 @@ export abstract class AbstractCrud<T> {
 
   protected onRowSelect(row: any) {
     this.isNew = false;
-    this.formGroup.patchValue(row);
+    this.fillFormGroup(row);
     this.visibleForm = true;
   }
 
@@ -74,11 +74,11 @@ export abstract class AbstractCrud<T> {
   }
 
   protected getInsertObservable() {
-    return this.entityService.insert(this.formGroup.getRawValue());
+    return this.entityService.insert(this.toDto());
   }
 
   protected getUpdateObservable() {
-    return this.entityService.update(this.formGroup.getRawValue());
+    return this.entityService.update(this.toDto());
   }
 
   protected deleteForm() {
@@ -118,4 +118,8 @@ export abstract class AbstractCrud<T> {
   }
 
   protected abstract getFormGroup(): void;
+
+  protected abstract toDto(): T;
+
+  protected abstract fillFormGroup(row: any): void;
 }

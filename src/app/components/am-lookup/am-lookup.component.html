@@ -1,0 +1,130 @@
+<div class="field" [formGroup]="formGroup">
+  <label class="field-label" for="input">{{ label }}</label>
+  <p-iconField iconPosition="right">
+    <p-inputIcon styleClass="pi pi-search" />
+    <input type="text"
+           pInputText
+           readonly="readonly"
+           (click)="openFilter()"
+           [placeholder]="placeholder != undefined ? placeholder : ''"
+           [value]="getFieldLabel()"
+           [ngClass]="formGroup.get(controlName)?.invalid && formGroup.get(controlName)?.dirty
+        ? 'ng-invalid ng-dirty'
+        : ''
+    " />
+  </p-iconField>
+  <small
+    class="error-message"
+    *ngIf="
+      formGroup.get(controlName)?.invalid && formGroup.get(controlName)?.dirty
+    "
+    id="input"
+  >
+    {{ error }}
+  </small>
+</div>
+
+<p-dialog
+  class="filter"
+  [closable]="true"
+  [modal]="true"
+  [closeOnEscape]="true"
+  (onHide)="closeFilter()"
+  [(visible)]="isVisible"
+  [draggable]="false"
+>
+  <ng-template pTemplate="header">
+    <div class="header-content">
+      <p>{{ header }}</p>
+      <div class="line"></div>
+    </div>
+  </ng-template>
+  <div class="filter-fields" [formGroup]="form">
+    <p>Buscar através dos filtros:</p>
+    @for (field of filterOptions?.fields; track field; let i = $index) {
+      <am-input-text
+        class="field"
+        (input)="table.filter(getEventValue($event), field.name, 'contains')"
+        [label]="field.label"
+        [formGroup]="form"
+        *ngIf="field.type == 'TEXT'"
+        [controlName]="field.name"
+      ></am-input-text>
+      <am-dropdown
+        class="field"
+        *ngIf="field.type == 'ENUM'"
+        (change)="table.filter(getEventValue($event), field.name, 'contains')"
+        [label]="field.label"
+        [formGroup]="form"
+        [controlName]="field.name"
+        [options]="field.options"
+      ></am-dropdown>
+      <am-datepicker
+        class="field"
+        (input)="table.filter(getEventValue($event), field.name, 'contains')"
+        *ngIf="field.type == 'DATE'"
+        [label]="field.label"
+        [formGroup]="form"
+        [controlName]="field.name"
+      ></am-datepicker>
+      <am-switch
+        class="field"
+        (change)="table.filter(getEventValue($event), field.name, 'contains')"
+        *ngIf="field.type == 'BOOLEAN'"
+        [label]="field.label"
+        [formGroup]="form"
+        [controlName]="field.name"
+      ></am-switch>
+      <am-input-number
+        class="field"
+        (input)="table.filter(getEventValue($event), field.name, 'contains')"
+        *ngIf="field.type == 'NUMBER'"
+        [label]="field.label"
+        [formGroup]="form"
+        [controlName]="field.name"
+      ></am-input-number>
+    }
+  </div>
+  <div class="filter-table">
+    <p-table
+      #table
+      dataKey="id"
+      [value]="data"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      styleClass="p-datatable"
+      [globalFilterFields]="filterFields"
+      [rowHover]="true"
+      [columns]="filterOptions?.columns"
+      [(selection)]="selectedRow"
+      selectionMode="single"
+      [metaKeySelection]="true"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th scope="col" [pSortableColumn]="col.field" *ngFor="let col of columns">
+            {{ col.header }}
+            <p-sortIcon [field]="col.field" />
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-row let-columns="columns">
+        <tr (dblclick)="onSubmit()" [pSelectableRow]="row">
+          <td *ngFor="let col of columns">
+            {{ row[col.field] }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <ng-template pTemplate="footer">
+    <div class="button-content">
+      <am-button
+        severity="info"
+        label="Selecionar"
+        size="medium"
+        (onClickButton)="onSubmit()"
+      ></am-button>
+    </div>
+  </ng-template>
+</p-dialog>
+

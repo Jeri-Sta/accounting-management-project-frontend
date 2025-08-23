@@ -10,6 +10,8 @@ import {
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import {AbstractCrud} from "../../abstract-crud";
+import moment from "moment/moment";
+import {TaskDto} from "../../../core/entities/task/task.dto";
 
 @Component({
   templateUrl: './users.component.html',
@@ -19,9 +21,10 @@ export class UsersComponent extends AbstractCrud<UserDto> implements OnInit {
 
   public columns: ColumnOptions[] = [
     { field: 'name', header: 'Name' },
+    { field: 'username', header: 'Usuário' },
     { field: 'email', header: 'Email' },
-    { field: 'name', header: 'Data de criação' },
-    { field: 'email', header: 'Última alteração' },
+    { field: 'timestampCreatedAt', header: 'Data de criação' },
+    { field: 'timestampUpdatedAt', header: 'Última alteração' },
   ];
 
   public fieldOptions: FieldOptions[] = [
@@ -29,6 +32,12 @@ export class UsersComponent extends AbstractCrud<UserDto> implements OnInit {
       name: 'name',
       type: 'TEXT',
       label: 'Nome',
+      required: true,
+    },
+    {
+      name: 'username',
+      type: 'TEXT',
+      label: 'Usuário',
       required: true,
     },
     {
@@ -64,6 +73,7 @@ export class UsersComponent extends AbstractCrud<UserDto> implements OnInit {
     this.formGroup = this.formBuilder.group({
       id: new FormControl(undefined),
       name: new FormControl(undefined, Validators.required),
+      username: new FormControl(undefined, Validators.required),
       email: new FormControl(undefined, [
         Validators.required,
         Validators.email,
@@ -76,5 +86,23 @@ export class UsersComponent extends AbstractCrud<UserDto> implements OnInit {
     return this.entityService.list().subscribe((registers) => {
       this.registers = (registers as UserDto[]).filter((dto: UserDto) => dto.active);
     });
+  }
+
+  protected override toDto(): UserDto {
+    let dto: UserDto = this.formGroup.getRawValue();
+
+    dto.timestampCreatedAt = dto.timestampCreatedAt ? moment(dto.timestampCreatedAt).format('YYYY-MM-DDTHH:MM:SS.sssZ') : undefined;
+    dto.timestampUpdatedAt = dto.timestampUpdatedAt ? moment(dto.timestampUpdatedAt).format('YYYY-MM-DDTHH:MM:SS.sssZ') : undefined;
+
+    return this.formGroup.getRawValue();
+  }
+
+  protected override fillFormGroup(row: any) {
+    let dto = row;
+
+    dto.timestampCreatedAt = moment(dto.timestampCreatedAt).toDate();
+    dto.timestampUpdatedAt = moment(dto.timestampUpdatedAt).toDate();
+
+    this.formGroup.patchValue(row);
   }
 }

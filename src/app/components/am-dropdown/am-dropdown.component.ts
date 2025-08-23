@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {FormGroup, ValidationErrors} from "@angular/forms";
 import getErrorMessage from "../../shared/error-utils";
-import {GenericType} from "../../core/enums/GenericType";
+import {GenericType} from "../../core/enums/generic-type";
 
 @Component({
   selector: 'am-dropdown',

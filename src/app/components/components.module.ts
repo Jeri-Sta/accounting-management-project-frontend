@@ -29,6 +29,7 @@ import {InputSwitchModule} from "primeng/inputswitch";
 import {AmSwitchComponent} from "./am-switch/am-switch.component";
 import {InputNumberModule} from "primeng/inputnumber";
 import {AmInputNumberComponent} from "./am-input-number/am-input-number.component";
+import {AmLookupComponent} from "./am-lookup/am-lookup.component";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {AmInputNumberComponent} from "./am-input-number/am-input-number.componen
     AmDropdownComponent,
     AmDatepickerComponent,
     AmSwitchComponent,
-    AmInputNumberComponent
+    AmInputNumberComponent,
+    AmLookupComponent
   ],
   exports: [
     AmButtonComponent,
@@ -55,7 +57,8 @@ import {AmInputNumberComponent} from "./am-input-number/am-input-number.componen
     AmDropdownComponent,
     AmDatepickerComponent,
     AmSwitchComponent,
-    AmInputNumberComponent
+    AmInputNumberComponent,
+    AmLookupComponent
   ],
   imports: [
     CommonModule,
@@ -78,7 +81,8 @@ import {AmInputNumberComponent} from "./am-input-number/am-input-number.componen
     DropdownModule,
     CalendarModule,
     InputSwitchModule,
-    InputNumberModule
+    InputNumberModule,
+    IconFieldModule
   ],
 })
 export class ComponentsModule {}

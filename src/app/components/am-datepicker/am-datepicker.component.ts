@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {FormGroup, ValidationErrors} from "@angular/forms";
-import {GenericType} from "../../core/enums/GenericType";
+import {GenericType} from "../../core/enums/generic-type";
 import getErrorMessage from "../../shared/error-utils";
 
 @Component({

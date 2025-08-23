@@ -56,6 +56,15 @@
         [controlName]="field.name"
         [errors]="form.get(field.name)?.errors"
       ></am-input-number>
+      <am-lookup
+        class="field"
+        *ngIf="field.type == 'LOOKUP'"
+        [label]="getFieldLabel(field.label, field.required)"
+        [formGroup]="form"
+        [controlName]="field.name"
+        [errors]="form.get(field.name)?.errors"
+        [filterOptions]="field.filterOptions"
+      ></am-lookup>
     }
   </p-panel>
 

@@ -1,0 +1,186 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .field-label {
+    font-family: "Afacad", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #103554;
+  }
+
+  ::ng-deep .p-inputtext.ng-dirty.ng-invalid {
+    border: solid 1px;
+    border-color: #e24c4c !important;
+  }
+
+  .error-message {
+    color: #e24c4c;
+    font-family: "Afacad", sans-serif;
+  }
+
+  ::ng-deep .p-inputtext {
+    width: 244px;
+    height: 36px;
+    border: 0;
+    background: #1e1e1e1a;
+    border-radius: 5px;
+  }
+
+  ::ng-deep .p-inputtext:enabled:hover {
+    border: 0;
+  }
+
+  ::ng-deep .p-inputtext:enabled:focus {
+    box-shadow: none;
+  }
+}
+
+.filter {
+  ::ng-deep .p-dialog-header {
+    background: #E7E5E5;
+    flex-direction: row;
+    align-items: end;
+
+    .header-content {
+      font-family: 'Afacad', sans-serif;
+      font-size: 25px;
+      font-weight: 500;
+      display: flex;
+      margin-bottom: 0;
+      gap: 40px;
+      align-items: center;
+
+      p {
+        margin: 0 0 0 40px;
+      }
+
+      .line {
+        height: 2px;
+        width: 70vh;
+        background: #1E1E1E70;
+      }
+    }
+
+    button {
+      background: #E7E5E5;
+    }
+  }
+
+  ::ng-deep .p-dialog-title {
+    background: #E7E5E5;
+  }
+
+  ::ng-deep .p-dialog-content {
+    background: #E7E5E5;
+
+    .filter-fields {
+      height: 100%;
+      width: 25%;
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-family: 'Afacad', sans-serif;
+        font-size: 20px;
+        margin: 0;
+      }
+    }
+
+    .filter-table {
+      height: 100%;
+      width: 75%;
+
+      $th-bg: #d9d9d9;
+      $th-color: #1e1e1e78;
+      $td-color: #103554;
+      $tr-bg: #427ca017;
+      $tr-stripe-bg: #d9d9d9;
+      $tr-hover-bg: #829dac;
+      $checkbox-bg: #c6c6c6;
+      $checkbox-highlight-bg: #829dac;
+      $checkbox-icon-color: #103554;
+      $sort-icon-color: #1e1e1e78;
+      $sort-icon-hover: #444d5c;
+
+      th {
+        background-color: $th-bg;
+        color: $th-color;
+        font-family: "Afacad", sans-serif;
+        line-height: 24px;
+        font-size: 18px;
+        font-weight: 400;
+        border: 0;
+        padding-bottom: 8px;
+        padding-top: 8px;
+      }
+
+      td {
+        border: 0;
+        color: $td-color;
+        font-size: 18px;
+        font-family: "Afacad", sans-serif;
+        line-height: 24px;
+        font-weight: 400;
+      }
+
+      ::ng-deep {
+        .p-datatable {
+          .p-datatable-tbody > tr {
+            background-color: $tr-bg;
+          }
+          &.p-datatable-striped .p-datatable-tbody > tr:nth-child(2n) {
+            background-color: $tr-stripe-bg;
+          }
+          &.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
+            transition: all 0.2s;
+            background-color: $tr-hover-bg;
+          }
+          .p-sortable-column:hover {
+            transition: all 0.2s;
+            background-color: $tr-hover-bg;
+          }
+
+          ::ng-deep .p-highlight {
+            background-color: $tr-hover-bg !important;
+          }
+        }
+
+        .p-sortable-column-icon {
+          height: 12px;
+          color: $sort-icon-color;
+          &:hover {
+            color: $sort-icon-hover;
+          }
+        }
+
+        .p-hidden-accessible {
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+
+          input,
+          select {
+            transform: scale(0);
+          }
+        }
+      }
+    }
+  }
+
+  ::ng-deep .p-dialog .p-dialog-header-icons {
+    margin-bottom: 20px;
+  }
+
+  ::ng-deep .p-dialog-footer {
+    background: #E7E5E5;
+  }
+}

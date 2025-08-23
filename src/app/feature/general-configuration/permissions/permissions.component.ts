@@ -83,4 +83,12 @@ export class PermissionsComponent extends AbstractCrud<PermissionDto> implements
     });
     this.visibleForm = true;
   }
+
+  protected override toDto(): PermissionDto {
+    return this.formGroup.getRawValue();
+  }
+
+  protected override fillFormGroup(row: any) {
+    return this.formGroup.patchValue(row);
+  }
 }
