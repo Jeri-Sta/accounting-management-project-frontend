@@ -1,0 +1,23 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .field-label {
+    font-family: "Afacad", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #103554;
+  }
+
+  ::ng-deep p-inputnumber.ng-dirty.ng-invalid > .p-inputnumber > .p-inputtext {
+    border: solid 1px;
+    border-color: #e24c4c !important;
+  }
+
+  .error-message {
+    color: #e24c4c;
+    font-family: "Afacad", sans-serif;
+  }
+}

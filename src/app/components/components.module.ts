@@ -21,6 +21,14 @@ import { PanelModule } from 'primeng/panel';
 import { BadgeModule } from 'primeng/badge';
 import { PasswordModule } from 'primeng/password';
 import { AmPasswordComponent } from './am-password/am-password.component';
+import {AmDropdownComponent} from "./am-dropdown/am-dropdown.component";
+import {DropdownModule} from "primeng/dropdown";
+import {AmDatepickerComponent} from "./am-datepicker/am-datepicker.component";
+import {CalendarModule} from "primeng/calendar";
+import {InputSwitchModule} from "primeng/inputswitch";
+import {AmSwitchComponent} from "./am-switch/am-switch.component";
+import {InputNumberModule} from "primeng/inputnumber";
+import {AmInputNumberComponent} from "./am-input-number/am-input-number.component";
 
 @NgModule({
   declarations: [
@@ -31,6 +39,10 @@ import { AmPasswordComponent } from './am-password/am-password.component';
     AmGridDataComponent,
     AmFormComponent,
     AmPasswordComponent,
+    AmDropdownComponent,
+    AmDatepickerComponent,
+    AmSwitchComponent,
+    AmInputNumberComponent
   ],
   exports: [
     AmButtonComponent,
@@ -40,6 +52,10 @@ import { AmPasswordComponent } from './am-password/am-password.component';
     AmGridDataComponent,
     AmFormComponent,
     AmPasswordComponent,
+    AmDropdownComponent,
+    AmDatepickerComponent,
+    AmSwitchComponent,
+    AmInputNumberComponent
   ],
   imports: [
     CommonModule,
@@ -59,6 +75,10 @@ import { AmPasswordComponent } from './am-password/am-password.component';
     ReactiveFormsModule,
     FormsModule,
     PasswordModule,
+    DropdownModule,
+    CalendarModule,
+    InputSwitchModule,
+    InputNumberModule
   ],
 })
 export class ComponentsModule {}

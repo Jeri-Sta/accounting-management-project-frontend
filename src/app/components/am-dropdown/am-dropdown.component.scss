@@ -1,0 +1,70 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .field-label {
+    font-family: "Afacad", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #103554;
+  }
+
+  ::ng-deep .p-dropdown {
+    width: 244px;
+    height: 36px;
+    border: 0;
+    background: #dbd8d8;
+    border-radius: 5px;
+  }
+
+  ::ng-deep .p-dropdown-panel {
+    background: #dbd8d8;
+  }
+
+  ::ng-deep .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+    background: #e7e4e4;
+  }
+
+  ::ng-deep .p-dropdown > .p-inputtext {
+    background: #dbd8d8;
+  }
+
+  ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+    box-shadow: none;
+  }
+
+  ::ng-deep .p-dropdown-item {
+    font-family: 'Afacad', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  ::ng-deep .p-dropdown-item.p-highlight {
+    color: black;
+    font-weight: 500;
+  }
+
+  ::ng-deep .p-dropdown-item.p-highlight.p-focus {
+    background: #f1eeee;
+  }
+
+  ::ng-deep .p-dropdown:enabled:hover {
+    border: 0;
+  }
+
+  ::ng-deep .p-dropdown:enabled:focus {
+    box-shadow: none;
+  }
+
+  ::ng-deep .p-dropdown.ng-dirty.ng-invalid {
+    border: solid 1px;
+    border-color: #e24c4c !important;
+  }
+
+  .error-message {
+    color: #e24c4c;
+    font-family: "Afacad", sans-serif;
+  }
+}

@@ -8,6 +8,7 @@
   flex-direction: row;
   background-color: #f1eeee;
   padding-top: 24px;
+  overflow: visible;
 }
 
 ::ng-deep .p-dialog-header {

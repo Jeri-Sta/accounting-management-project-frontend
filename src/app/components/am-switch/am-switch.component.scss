@@ -1,0 +1,25 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .field-label {
+    font-family: "Afacad", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #103554;
+  }
+
+  ::ng-deep .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+    background: #6d96b0;
+  }
+
+  ::ng-deep .p-inputswitch .p-inputswitch-slider {
+    background: #1e1e1e1a;
+  }
+
+  ::ng-deep .p-inputswitch.p-focus .p-inputswitch-slider {
+    box-shadow: none;
+  }
+}

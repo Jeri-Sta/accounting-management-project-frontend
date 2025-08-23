@@ -1,0 +1,23 @@
+<div class="field" [formGroup]="formGroup">
+  <label class="field-label" for="input">{{ label }}</label>
+  <p-dropdown id="input"
+              [placeholder]="placeholder != undefined ? placeholder : ''"
+              [formControlName]="controlName"
+              [ngClass]="formGroup.get(controlName)?.invalid && formGroup.get(controlName)?.dirty
+        ? 'ng-invalid ng-dirty'
+        : ''
+    "
+              optionLabel="name"
+              optionValue="type"
+              [options]="options"
+  />
+  <small
+    class="error-message"
+    *ngIf="
+      formGroup.get(controlName)?.invalid && formGroup.get(controlName)?.dirty
+    "
+    id="input"
+  >
+    {{ error }}
+  </small>
+</div>

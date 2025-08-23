@@ -8,22 +8,54 @@
 >
   <p-panel [header]="subTitle" [formGroup]="form">
     @for (field of fieldOptions; track field; let i = $index) {
-    <am-input-text
-      class="field"
-      [label]="getFieldLabel(field.label, field.required)"
-      [formGroup]="form"
-      *ngIf="field.type == 'TEXT'"
-      [controlName]="field.name"
-      [errors]="form.get(field.name)?.errors"
-    ></am-input-text>
-    <am-password
-      class="field"
-      *ngIf="field.type == 'PASSWORD'"
-      [label]="getFieldLabel(field.label, field.required)"
-      [formGroup]="form"
-      [controlName]="field.name"
-      [errors]="form.get(field.name)?.errors"
-    ></am-password>
+      <am-input-text
+        class="field"
+        [label]="getFieldLabel(field.label, field.required)"
+        [formGroup]="form"
+        *ngIf="field.type == 'TEXT'"
+        [controlName]="field.name"
+        [errors]="form.get(field.name)?.errors"
+      ></am-input-text>
+      <am-password
+        class="field"
+        *ngIf="field.type == 'PASSWORD'"
+        [label]="getFieldLabel(field.label, field.required)"
+        [formGroup]="form"
+        [controlName]="field.name"
+        [errors]="form.get(field.name)?.errors"
+      ></am-password>
+      <am-dropdown
+        class="field"
+        *ngIf="field.type == 'ENUM'"
+        [label]="getFieldLabel(field.label, field.required)"
+        [formGroup]="form"
+        [controlName]="field.name"
+        [errors]="form.get(field.name)?.errors"
+        [options]="field.options"
+      ></am-dropdown>
+      <am-datepicker
+        class="field"
+        *ngIf="field.type == 'DATE'"
+        [label]="getFieldLabel(field.label, field.required)"
+        [formGroup]="form"
+        [controlName]="field.name"
+        [errors]="form.get(field.name)?.errors"
+      ></am-datepicker>
+      <am-switch
+        class="field"
+        *ngIf="field.type == 'BOOLEAN'"
+        [label]="getFieldLabel(field.label, field.required)"
+        [formGroup]="form"
+        [controlName]="field.name"
+      ></am-switch>
+      <am-input-number
+        class="field"
+        *ngIf="field.type == 'NUMBER'"
+        [label]="getFieldLabel(field.label, field.required)"
+        [formGroup]="form"
+        [controlName]="field.name"
+        [errors]="form.get(field.name)?.errors"
+      ></am-input-number>
     }
   </p-panel>
 

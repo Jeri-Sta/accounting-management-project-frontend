@@ -1,16 +1,13 @@
-import { Component, Input } from '@angular/core';
-import {
-  FormGroup,
-  ValidationErrors,
-} from '@angular/forms';
-import getErrorMessage from '../../shared/error-utils';
+import {Component, Input} from '@angular/core';
+import {FormGroup, ValidationErrors} from "@angular/forms";
+import getErrorMessage from "../../shared/error-utils";
 
 @Component({
-  selector: 'am-input-text',
-  templateUrl: './am-input-text.component.html',
-  styleUrl: './am-input-text.component.css',
+  selector: 'am-input-number',
+  templateUrl: './am-input-number.component.html',
+  styleUrl: './am-input-number.component.scss'
 })
-export class AmInputTextComponent {
+export class AmInputNumberComponent {
   @Input()
   placeholder!: string;
   @Input()
