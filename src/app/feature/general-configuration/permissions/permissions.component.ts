@@ -24,7 +24,7 @@ export class PermissionsComponent extends AbstractCrud<PermissionDto> implements
     { header: 'Data de criação', field: 'creationDate' },
   ];
 
-  public fieldOptions: FieldOptions[] = [
+  protected fieldOptions: FieldOptions[] = [
     {
       name: 'permissionName',
       type: 'TEXT',

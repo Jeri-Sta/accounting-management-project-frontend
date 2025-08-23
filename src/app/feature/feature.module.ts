@@ -9,9 +9,10 @@ import { DialogModule } from 'primeng/dialog';
 import { PanelModule } from 'primeng/panel';
 import { PermissionsComponent } from './general-configuration/permissions/permissions.component';
 import {LoginComponent} from "./login/login.component";
+import {TasksComponent} from "./task/tasks.component";
 
 @NgModule({
-  declarations: [LoginComponent, UsersComponent, PermissionsComponent],
+  declarations: [LoginComponent, UsersComponent, PermissionsComponent, TasksComponent],
   imports: [
     CommonModule,
     CoreModule,
@@ -21,6 +22,6 @@ import {LoginComponent} from "./login/login.component";
     NgOptimizedImage,
   ],
   providers: [UserService, MessageService],
-  exports: [LoginComponent, UsersComponent, PermissionsComponent],
+  exports: [LoginComponent, UsersComponent, PermissionsComponent, TasksComponent],
 })
 export class FeatureModule {}

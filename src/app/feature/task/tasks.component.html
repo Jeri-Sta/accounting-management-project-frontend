@@ -1,0 +1,30 @@
+<am-page-header
+  (filterActions)="table.filterGlobal($event.target.value, 'contains')"
+  pageTitle="Gerenciador de tarefas"
+  (newRegister)="newRegister()"
+  (deleteRegister)="deleteGrid()"
+  [selectedRows]="selectedRows.length"
+  [showFilter]="false"
+></am-page-header>
+<am-grid-data
+  [columns]="columns"
+  (onClickRow)="onRowSelect($event)"
+  [data]="registers"
+  (tableReady)="handleTableReady($event)"
+  [filterFields]="filterFields"
+  (selectedRowsChange)="onChangeSelection($event)"
+  [(selectedRows)]="selectedRows"
+></am-grid-data>
+<am-form
+  formTitle="Gerenciador de tarefas"
+  subTitle="Informações da tarefa"
+  [fieldOptions]="fieldOptions"
+  (closeForm)="closeFormScreen()"
+  [visibleForm]="visibleForm"
+  [form]="formGroup"
+  (saveForm)="saveForm()"
+  (deleteForm)="deleteForm()"
+  [isNew]="isNew"
+  [loading]="loading"
+></am-form>
+
