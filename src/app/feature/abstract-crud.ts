@@ -108,6 +108,7 @@ export abstract class AbstractCrud<T> {
     idsToDelete.forEach((id) => {
       this.entityService.delete(id).subscribe(() => {
         this.getRegisters();
+        this.selectedRows = [];
       });
     });
     this.messageService.add({
