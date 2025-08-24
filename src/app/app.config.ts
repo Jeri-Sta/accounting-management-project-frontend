@@ -1,14 +1,16 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter, Routes } from '@angular/router';
-import { UsersComponent } from './feature/general-configuration/users/users.component';
+import { UserComponent } from './feature/general-configuration/users/user.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { PermissionsComponent } from './feature/general-configuration/permissions/permissions.component';
-import {TasksComponent} from "./feature/task/tasks.component";
+import { PermissionComponent } from './feature/general-configuration/permissions/permission.component';
+import {TaskComponent} from "./feature/task/task.component";
+import {CompanyComponent} from "./feature/company/company.component";
 
 const routes: Routes = [
-  { path: 'users', component: UsersComponent },
-  { path: 'permissions', component: PermissionsComponent },
-  { path: 'tasks', component: TasksComponent }
+  { path: 'user', component: UserComponent },
+  { path: 'permission', component: PermissionComponent },
+  { path: 'task', component: TaskComponent },
+  { path: 'company', component: CompanyComponent },
 ];
 
 export const appConfig: ApplicationConfig = {

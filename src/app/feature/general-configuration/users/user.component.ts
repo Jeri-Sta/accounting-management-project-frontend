@@ -14,10 +14,10 @@ import moment from "moment/moment";
 import {TaskDto} from "../../../core/entities/task/task.dto";
 
 @Component({
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.css',
+  templateUrl: './user.component.html',
+  styleUrl: './user.component.css',
 })
-export class UsersComponent extends AbstractCrud<UserDto> implements OnInit {
+export class UserComponent extends AbstractCrud<UserDto> implements OnInit {
 
   public columns: ColumnOptions[] = [
     { field: 'name', header: 'Name' },

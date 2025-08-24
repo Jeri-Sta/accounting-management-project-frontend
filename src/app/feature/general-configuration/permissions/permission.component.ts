@@ -13,10 +13,10 @@ import { MessageService } from 'primeng/api';
 import {AbstractCrud} from "../../abstract-crud";
 
 @Component({
-  templateUrl: './permissions.component.html',
-  styleUrl: './permissions.component.css',
+  templateUrl: './permission.component.html',
+  styleUrl: './permission.component.css',
 })
-export class PermissionsComponent extends AbstractCrud<PermissionDto> implements OnInit {
+export class PermissionComponent extends AbstractCrud<PermissionDto> implements OnInit {
 
   columns: ColumnOptions[] = [
     { header: 'Nome da permissão', field: 'permissionName' },

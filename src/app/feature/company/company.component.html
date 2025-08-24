@@ -1,0 +1,30 @@
+<am-page-header
+  (filterActions)="table.filterGlobal($event.target.value, 'contains')"
+  pageTitle="Cadastro de empresas"
+  (newRegister)="newRegister()"
+  (deleteRegister)="deleteGrid()"
+  [selectedRows]="selectedRows.length"
+  [showFilter]="false"
+></am-page-header>
+<am-grid-data
+  [columns]="columns"
+  (onClickRow)="onRowSelect($event)"
+  [data]="registers"
+  (tableReady)="handleTableReady($event)"
+  [filterFields]="filterFields"
+  (selectedRowsChange)="onChangeSelection($event)"
+  [(selectedRows)]="selectedRows"
+></am-grid-data>
+<am-form
+  formTitle="Cadastro de empresas"
+  subTitle="Informações da empresa"
+  [fieldOptions]="fieldOptions"
+  (closeForm)="closeFormScreen()"
+  [visibleForm]="visibleForm"
+  [form]="formGroup"
+  (saveForm)="saveForm()"
+  (deleteForm)="deleteForm()"
+  [isNew]="isNew"
+  [loading]="loading"
+></am-form>
+

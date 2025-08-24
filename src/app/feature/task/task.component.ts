@@ -11,10 +11,10 @@ import {UserService} from "../../core/entities/user/user.service";
 import moment from "moment";
 
 @Component({
-  templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.scss'
+  templateUrl: './task.component.html',
+  styleUrl: './task.component.scss'
 })
-export class TasksComponent extends AbstractCrud<TaskDto> implements OnInit{
+export class TaskComponent extends AbstractCrud<TaskDto> implements OnInit{
 
   protected columns: ColumnOptions[] = [
     { header: 'Nº da tarefa', field: 'taskNumber' },

@@ -22,6 +22,7 @@
             ></i>
           </button>
           <ul *ngIf="isSubmenuOpen(0)" class="submenu-content">
+            <li><a href="/company">Empresas</a></li>
             <li><a href="#">Clientes</a></li>
             <li><a href="#">Sócios</a></li>
           </ul>
@@ -47,7 +48,7 @@
           <a href="#">Contratos</a>
         </li>
         <li>
-          <a href="/tasks">Tarefas</a>
+          <a href="/task">Tarefas</a>
         </li>
         <li>
           <button (click)="toggleSubmenu(2)">
@@ -62,8 +63,8 @@
             ></i>
           </button>
           <ul *ngIf="isSubmenuOpen(2)" class="submenu-content">
-            <li><a href="/users">Usuários</a></li>
-            <li><a href="/permissions">Permissões</a></li>
+            <li><a href="/user">Usuários</a></li>
+            <li><a href="/permission">Permissões</a></li>
           </ul>
         </li>
       </ul>

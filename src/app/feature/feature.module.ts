@@ -2,17 +2,18 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { NgModule } from '@angular/core';
 import { CoreModule } from '../core/core.module';
 import { ComponentsModule } from '../components/components.module';
-import { UsersComponent } from './general-configuration/users/users.component';
+import { UserComponent } from './general-configuration/users/user.component';
 import { UserService } from '../core/entities/user/user.service';
 import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
 import { PanelModule } from 'primeng/panel';
-import { PermissionsComponent } from './general-configuration/permissions/permissions.component';
+import { PermissionComponent } from './general-configuration/permissions/permission.component';
 import {LoginComponent} from "./login/login.component";
-import {TasksComponent} from "./task/tasks.component";
+import {TaskComponent} from "./task/task.component";
+import {CompanyComponent} from "./company/company.component";
 
 @NgModule({
-  declarations: [LoginComponent, UsersComponent, PermissionsComponent, TasksComponent],
+  declarations: [LoginComponent, UserComponent, PermissionComponent, TaskComponent, CompanyComponent],
   imports: [
     CommonModule,
     CoreModule,
@@ -22,6 +23,6 @@ import {TasksComponent} from "./task/tasks.component";
     NgOptimizedImage,
   ],
   providers: [UserService, MessageService],
-  exports: [LoginComponent, UsersComponent, PermissionsComponent, TasksComponent],
+  exports: [LoginComponent, UserComponent, PermissionComponent, TaskComponent, CompanyComponent],
 })
 export class FeatureModule {}
